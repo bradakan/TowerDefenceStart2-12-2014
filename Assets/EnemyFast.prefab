@@ -10,13 +10,15 @@ GameObject:
   - 4: {fileID: 400000}
   - 33: {fileID: 3300000}
   - 23: {fileID: 2300000}
-  - 61: {fileID: 6100000}
-  - 50: {fileID: 5000000}
   - 114: {fileID: 11400000}
   - 195: {fileID: 19500000}
+  - 54: {fileID: 5400000}
+  - 65: {fileID: 6500000}
+  - 50: {fileID: 5000000}
+  - 61: {fileID: 6100000}
   m_Layer: 0
   m_Name: EnemyFast
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: .337682247, y: 5.01430702, z: 0}
-  m_LocalScale: {x: .5, y: .5, z: .5}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -62,7 +64,7 @@ MeshFilter:
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!50 &5000000
 Rigidbody2D:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
@@ -75,9 +77,24 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+--- !u!54 &5400000
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!61 &6100000
 BoxCollider2D:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
@@ -86,6 +103,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_Size: {x: 1, y: 1}
   m_Center: {x: 0, y: 0}
+--- !u!65 &6500000
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -97,9 +126,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2f2892446e958d43b7809266e589cfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targets: []
-  speed: 5
   turret: {fileID: 100000, guid: 4fc29f5c810e79d498f5624704754840, type: 2}
+  endPoint: {fileID: 0}
+  health: 5
 --- !u!195 &19500000
 NavMeshAgent:
   m_ObjectHideFlags: 1

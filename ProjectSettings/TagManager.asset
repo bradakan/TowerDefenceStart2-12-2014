@@ -5,6 +5,10 @@ TagManager:
   tags:
   - Bullet
   - Target
+  - End
+  - Enemy
+  - RemoveEnemy
+  - Tower
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
