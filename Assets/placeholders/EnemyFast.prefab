@@ -129,6 +129,7 @@ MonoBehaviour:
   turret: {fileID: 100000, guid: 4fc29f5c810e79d498f5624704754840, type: 2}
   endPoint: {fileID: 0}
   health: 5
+  speed: 6
 --- !u!195 &19500000
 NavMeshAgent:
   m_ObjectHideFlags: 1

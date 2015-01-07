@@ -4,6 +4,8 @@ using System.Collections;
 public class BulletController : MonoBehaviour {
 
     public float damage;
+    public float slow;
+    public bool stun;
     public Transform target;
 	// Use this for initialization
 	void Start () 
