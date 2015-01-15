@@ -4,10 +4,13 @@ using System.Collections.Generic;
 
 public class UpgradeTower : MonoBehaviour {
 
+    private GameObject uiButtons;
+    private ButtonBehavior UI;
 	// Use this for initialization
 	void Start () 
     {
-	
+        uiButtons = GameObject.FindGameObjectWithTag("Buttons");
+        UI = uiButtons.GetComponent<ButtonBehavior>();
 	}
 	
 	// Update is called once per frame
@@ -18,12 +21,14 @@ public class UpgradeTower : MonoBehaviour {
 
     void OnMouseDown()
     {
-        Debug.Log("test onclick");
-        Destroy(transform.parent.gameObject);
+        UI.changeSetActive();
+        UI.target = transform.parent.gameObject;
+        UI.button1 = "upgrade";
+        UI.button2 = "sell";
+        UI.button3 = "cancel";
+        UI.isUpgrade = true;
+        UI.buildTower = false;
     }
 
-    void OnMouseOver()
-    {
-        Debug.Log("test onmouseover");
-    }
+    
 }

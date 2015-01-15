@@ -7,8 +7,10 @@ public class NewTurret : MonoBehaviour {
     private Transform target;
     public Transform bulletSpawnpoint;
     public bool isSniper = false;
+    public float sniperDamage;
     public Transform Bullet;
     private float cooldown;
+    
     public float cooldownTime = 1;
     public Transform tempBullet;
     public static bool waitingforTarget = true;
@@ -36,7 +38,7 @@ public class NewTurret : MonoBehaviour {
             }
             else if (isSniper)
             {
-                target.GetComponent<NewEnemy>().takeDamage(5f);
+                target.GetComponent<NewEnemy>().takeDamage(sniperDamage);
             }
 
         }

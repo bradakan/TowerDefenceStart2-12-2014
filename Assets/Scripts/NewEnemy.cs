@@ -6,6 +6,7 @@ public class NewEnemy : MonoBehaviour {
 
     public GameObject turret;
     public Transform endPoint;
+    public float points;
     public float health;
     public float speed;
     private bool isSlowed = false;
@@ -50,8 +51,11 @@ public class NewEnemy : MonoBehaviour {
     {
         
         health -= damage;
-        if (health < 0)
+        if (health <= 0)
         {
+            Score tempScore = GameObject.FindGameObjectWithTag("Score").GetComponent<Score>();
+            tempScore.score += points;
+            tempScore.money += points;
             destroyMe();
         }
     }
