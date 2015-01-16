@@ -5,10 +5,12 @@ public class EnemySpawner : MonoBehaviour {
 
     public Transform enemy1;
     public Transform fastEnemy;
+    public float delay = 4;
+    public float startDelay = 10;
 	// Use this for initialization
 	void Start () 
     {
-        Invoke("createEnemy", 2);
+        Invoke("createEnemy", startDelay);
 	}
 
     void createEnemy() 
@@ -23,7 +25,7 @@ public class EnemySpawner : MonoBehaviour {
             Instantiate(fastEnemy, transform.position, transform.rotation);
         }
         
-        Invoke("createEnemy", 2);
+        Invoke("createEnemy", delay);
     }
 
 }

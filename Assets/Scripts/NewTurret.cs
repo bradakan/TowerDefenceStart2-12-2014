@@ -10,7 +10,7 @@ public class NewTurret : MonoBehaviour {
     public float sniperDamage;
     public Transform Bullet;
     private float cooldown;
-    
+    public float sellValue;
     public float cooldownTime = 1;
     public Transform tempBullet;
     public static bool waitingforTarget = true;
@@ -42,7 +42,7 @@ public class NewTurret : MonoBehaviour {
             }
 
         }
-        else if (listTargets.Count > 0 && target != null)
+        else if (listTargets.Count > 0 && target != null && !isSniper)
         {
             bulletSpawnpoint.transform.LookAt(target);
         }

@@ -6,9 +6,17 @@ public class ButtonBehavior : MonoBehaviour {
 
     public static ButtonBehavior singleton;
     public string pewpew = "PEWPEW";
-    public string button1 = "button1";
-    public string button2 = "button2";
-    public string button3 = "button3";
+    public Texture rapid;
+    public Texture sniper;
+    public Texture slow;
+    public Texture noRapid;
+    public Texture noSniper;
+    public Texture noSlow;
+    public Texture upgrade;
+    public Texture noUpgrade;
+    public Texture sell;
+    public Texture menu;
+    public Texture cancel;
     public bool isUpgrade = false;
     public bool buildTower = false;
     public GameObject target;
@@ -26,9 +34,10 @@ public class ButtonBehavior : MonoBehaviour {
     }
     void OnGUI()
     {
+        GUI.depth = 0;
         if (buildTower == true)
         {
-            if (GUI.Button(new Rect(10, 280, 60, 30), "Rapid,: 100",style))
+            if (GUI.Button(new Rect(10, 15, 100, 40), rapid, style))
             {
                 Debug.Log("build rapid tower");
                 if(score.money >= 100)
@@ -39,35 +48,39 @@ public class ButtonBehavior : MonoBehaviour {
                 }
                 
             }
-            if (GUI.Button(new Rect(10, 320, 60, 30), "Slow: 200", style))
+            if (GUI.Button(new Rect(110, 15, 100, 40), slow, style))
             {
                 Debug.Log("build slow tower");
                 target.GetComponent<BuildTower>().spawnTower("slow");
+                score.money -= 200;
                 changeSetActive();
             }
-            if (GUI.Button(new Rect(10, 360, 60, 30), "Sniper: 300", style))
+            if (GUI.Button(new Rect(210, 15, 100, 40), sniper, style))
             {
                 Debug.Log("build Sniper tower");
-                target.GetComponent<BuildTower>().spawnTower("sniper");
+                if(score.money >= 300)
+                {
+                    target.GetComponent<BuildTower>().spawnTower("sniper");
+                    score.money -= 300;
+                }
                 changeSetActive();
             }
-            if (GUI.Button(new Rect(10, 400, 60, 30), "Cancel", style))
+            if (GUI.Button(new Rect(310, 15, 110, 40), cancel, style))
             {
                 changeSetActive();
             }
         }
         if(isUpgrade == true)
         {
-            if (GUI.Button(new Rect(10, 320, 60, 30), "Upgrade", style))
+
+            if (GUI.Button(new Rect(210, 15, 100, 40), sell, style))
             {
-                Debug.Log("upgrade function goes here");
-            }
-            if (GUI.Button(new Rect(10, 360, 60, 30), "Sell", style))
-            {
+                score.money += target.GetComponent<NewTurret>().sellValue;
                 Destroy(target.gameObject);
+                changeSetActive();
                 Debug.Log("geld terug krijgen goes on this line");
             }
-            if (GUI.Button(new Rect(10, 400, 60, 30), "Cancel", style))
+            if (GUI.Button(new Rect(310, 15, 110, 40), cancel, style))
             {
                 changeSetActive();
             }

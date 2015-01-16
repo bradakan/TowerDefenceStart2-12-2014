@@ -3,17 +3,16 @@ using System.Collections;
 
 public class BuildTower : MonoBehaviour {
 
-    private GameObject uiButtons;
-    private ButtonBehavior UI;
     public Transform towerSpawnPoint;
     public Transform sniperTower;
     public Transform rapidFireTower;
     public Transform slowTower;
-    // Use this for initialization
-    void Start()
+    private ButtonBehavior UI;
+
+    void Awake()
     {
-        uiButtons = GameObject.FindGameObjectWithTag("Buttons");
-        UI = uiButtons.GetComponent<ButtonBehavior>();
+        UI = GameObject.FindGameObjectWithTag("Buttons").GetComponent<ButtonBehavior>();
+
     }
 
     void OnMouseDown()

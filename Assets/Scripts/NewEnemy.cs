@@ -11,11 +11,13 @@ public class NewEnemy : MonoBehaviour {
     public float speed;
     private bool isSlowed = false;
     private bool isStunned = false;
+    private Score score;
     NavMeshAgent agent;
     GameObject[] towers;
     // Use this for initialization
     void Start()
     {
+        score = GameObject.FindGameObjectWithTag("Score").GetComponent<Score>();
         endPoint = GameObject.FindGameObjectWithTag("End").transform;
         agent = GetComponent<NavMeshAgent>();
         agent.SetDestination(endPoint.position);
@@ -27,6 +29,7 @@ public class NewEnemy : MonoBehaviour {
     {
         if(other.tag == "Finish")
         {
+            score.health -= 25;
             Debug.Log("life--");
             destroyMe();
         }
@@ -55,6 +58,7 @@ public class NewEnemy : MonoBehaviour {
         {
             Score tempScore = GameObject.FindGameObjectWithTag("Score").GetComponent<Score>();
             tempScore.score += points;
+            Debug.Log("y u no score");
             tempScore.money += points;
             destroyMe();
         }
